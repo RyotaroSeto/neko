@@ -7,8 +7,8 @@ before:
     # you may remove this if you don't need go generate
     - go generate ./...
 builds:
-  - ldflags:
-      - -s -w -X github.com/RyotaroSeto/neko/cmd.version=v{{.Version}}
+  # - ldflags:
+  #     - -s -w -X github.com/RyotaroSeto/neko/cmd.version=v{{.Version}}
   - env:
       - CGO_ENABLED=0
     goos:
