@@ -34,7 +34,7 @@ func newRootCmd() *cobra.Command {
 	return &cobra.Command{
 		Use:   "neko",
 		Short: "show cat",
-		Long:  `show cat.`,
+		Long:  `show cat tarminal.`,
 		RunE: func(cmd *cobra.Command, args []string) error {
 			if len(args) == 0 {
 				fmt.Print(simpleNeko.Simple)
