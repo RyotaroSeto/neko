@@ -43,7 +43,7 @@ changelog:
 
 brews:
   - tap:
-      owner: Ryotaro Seto
+      owner: RyotaroSeto
       name: homebrew-tap
       token: "{{ .Env.TAP_GITHUB_TOKEN }}"
 # The lines beneath this are called `modelines`. See `:help modeline`
