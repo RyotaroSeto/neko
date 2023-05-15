@@ -1,4 +1,4 @@
 ## インストール
 ```
-$ brew install RyotaroSeto/neko/neko
+$ brew install RyotaroSeto/tap/neko
 ```
