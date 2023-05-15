@@ -28,30 +28,34 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var rootCmd = newRootCmd()
-
-func newRootCmd() *cobra.Command {
-	return &cobra.Command{
-		Use:   "neko",
-		Short: "show cat",
-		Long:  `show cat tarminal.`,
-		RunE: func(cmd *cobra.Command, args []string) error {
-			if len(args) == 0 {
-				fmt.Print(simpleNeko.Simple)
-				return nil
-			}
+var nekoCmd = &cobra.Command{
+	Use:   "neko",
+	Short: "show cat",
+	Long:  `show cat tarminal.`,
+	Args:  cobra.MaximumNArgs(1),
+	RunE: func(cmd *cobra.Command, args []string) error {
+		isArgsVersion, err := cmd.Flags().GetBool("version")
+		if err != nil {
+			return err
+		}
+		if isArgsVersion {
+			showVersion()
 			return nil
-		},
-	}
+		}
+
+		fmt.Print(simpleNeko.Simple)
+		return nil
+	},
 }
 
 func Execute() {
-	err := rootCmd.Execute()
+	err := nekoCmd.Execute()
 	if err != nil {
 		os.Exit(1)
 	}
 }
 
 func init() {
-	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	nekoCmd.AddCommand(versionCmd)
+	nekoCmd.Flags().BoolP("version", "v", false, "")
 }
