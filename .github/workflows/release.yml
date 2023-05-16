@@ -18,13 +18,13 @@ jobs:
         with:
           fetch-depth: 0
       - name: Get the version
-        id: get_version
-        run: echo ::set-output name=VERSION::${GITHUB_REF##*/}"
+        id: get_tag_name
+        run: echo "TAG_NAME=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Tag push
         id: tag_push
         run: |
-          git tag ${{ steps.get_version.outputs.VERSION }}
-          git push origin ${{ steps.get_version.outputs.VERSION }}
+          git tag ${{ steps.get_tag_name.outputs.TAG_NAME }}
+          git push origin ${{ steps.get_tag_name.outputs.TAG_NAME }}
       - uses: actions/setup-go@v3
         with:
           go-version-file: go.mod
