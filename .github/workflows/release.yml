@@ -21,8 +21,8 @@ jobs:
         id: tag_push
         run: |
           export TAG_NAME=$(sed -n 6P pubspec.yaml | sed 's/version: //')
-          git tag $TAG_NAME
-          git push origin $TAG_NAME
+          git tag 1.0.1
+          git push origin 1.0.1
       - uses: actions/setup-go@v3
         with:
           go-version-file: go.mod
