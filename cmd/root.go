@@ -22,11 +22,14 @@ THE SOFTWARE.
 package cmd
 
 import (
+	"bufio"
 	"fmt"
 	"os"
 
 	"github.com/spf13/cobra"
 )
+
+const argsCountOne = 1
 
 var nekoCmd = &cobra.Command{
 	Use:   "neko",
@@ -43,7 +46,17 @@ var nekoCmd = &cobra.Command{
 			return nil
 		}
 
-		fmt.Println(simpleNeko.Simple)
+		if len(args) == argsCountOne {
+			fmt.Println(NamedNeko(args[0]))
+
+			scanner := bufio.NewScanner(os.Stdin)
+			scanner.Scan()
+			if scanner.Text() == args[0] {
+				fmt.Println(voiceNeko.Simple)
+			}
+		} else {
+			fmt.Println(simpleNeko.Simple)
+		}
 
 		return nil
 	},
