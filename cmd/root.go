@@ -28,8 +28,6 @@ import (
 	"github.com/spf13/cobra"
 )
 
-const argsCountOne = 1
-
 var nekoCmd = &cobra.Command{
 	Use:   "neko",
 	Short: "show cat",
@@ -46,6 +44,7 @@ var nekoCmd = &cobra.Command{
 		}
 
 		fmt.Println(simpleNeko.Simple)
+
 		return nil
 	},
 }

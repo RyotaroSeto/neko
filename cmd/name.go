@@ -6,6 +6,7 @@ package cmd
 import (
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/spf13/cobra"
 )
@@ -23,12 +24,13 @@ var nameCmd = &cobra.Command{
 			return err
 		}
 
-		var englishName string
+		var englishName []string
 		if len(apiResponse.Name) > 0 && len(apiResponse.Name[0]) == 3 {
-			englishName = apiResponse.Name[0][2]
+			englishFullName := apiResponse.Name[0][2]
+			englishName = strings.Split(englishFullName, " ")
 		}
 
-		fmt.Println(englishName)
+		fmt.Println(englishName[0])
 		return nil
 	},
 }
