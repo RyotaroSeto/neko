@@ -28,10 +28,12 @@ import (
 	"github.com/spf13/cobra"
 )
 
+const argsCountOne = 1
+
 var nekoCmd = &cobra.Command{
 	Use:   "neko",
 	Short: "show cat",
-	Long:  `show cat tarminal.`,
+	Long:  `show cat terminal.`,
 	Args:  cobra.MaximumNArgs(1),
 	RunE: func(cmd *cobra.Command, args []string) error {
 		isArgsVersion, err := cmd.Flags().GetBool("version")
@@ -43,7 +45,7 @@ var nekoCmd = &cobra.Command{
 			return nil
 		}
 
-		fmt.Print(simpleNeko.Simple)
+		fmt.Println(simpleNeko.Simple)
 		return nil
 	},
 }
@@ -57,5 +59,6 @@ func Execute() {
 
 func init() {
 	nekoCmd.AddCommand(versionCmd)
+	nekoCmd.AddCommand(nameCmd)
 	nekoCmd.Flags().BoolP("version", "v", false, "")
 }
