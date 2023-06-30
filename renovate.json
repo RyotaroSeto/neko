@@ -12,6 +12,6 @@
       {
         "groupName": "github-actions versions",
         "matchManagers": ["github-actions"]
-      },
+      }
     ]
 }
