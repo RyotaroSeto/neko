@@ -30,7 +30,7 @@ jobs:
         run: |
           git tag ${{ steps.get-next-version-tag.outputs.tag }}
           git push origin ${{ steps.get-next-version-tag.outputs.tag }}
-      - uses: actions/setup-go@v3
+      - uses: actions/setup-go@v4
         with:
           go-version-file: go.mod
           cache: true
