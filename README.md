@@ -14,18 +14,18 @@
 ```
 
 
-## インストール
+## install
 ```
 $ brew install RyotaroSeto/tap/neko
 ```
 
-## 最新のversionに更新
+## Update to the latest version
 ```
 $ brew upgrade RyotaroSeto/tap/neko
 ```
 
-## 使い方
-### 猫を呼び出すと猫が現れます。
+## usage
+### When you call the cat, the cat appears.
 ```
 $ neko
             /\___/\
@@ -41,13 +41,13 @@ $ neko
         `""""""""""""`
 ```
 
-### 猫の名前を提案してくれます。
+### They will suggest names for the cat.
 ```
 $ neko name
 Ryotaro
 ```
 
-### 名前を呼んだら応答してくれます。
+### They respond when you call their name.
 ```
 $ neko Ryotaro
             /\___/\
@@ -63,6 +63,6 @@ $ neko Ryotaro
         `""""""""""""`
 ```
 
-### 皆さん可愛がってあげてくださいね！！
+### I hope you all love them!!
 ## LICENSE
 [MIT](./LICENSE)
