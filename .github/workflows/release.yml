@@ -30,12 +30,12 @@ jobs:
         run: |
           git tag ${{ steps.get-next-version-tag.outputs.tag }}
           git push origin ${{ steps.get-next-version-tag.outputs.tag }}
-      - uses: actions/setup-go@v4
+      - uses: actions/setup-go@v5
         with:
           go-version-file: go.mod
           cache: true
 
-      - uses: goreleaser/goreleaser-action@v5
+      - uses: goreleaser/goreleaser-action@v6
         with:
           args: release --rm-dist
         env:
