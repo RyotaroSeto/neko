@@ -1,6 +1,7 @@
 # neko
-- `neko` can call a cat by tapping a command.
-- They also respond by calling the cat's name.
+`neko` can call a cat by tapping a command.
+
+They also respond by calling the cat's name.
 
 ## Installing
 Please install neko using the brew command
